@@ -36,7 +36,7 @@ void loop()
   Wire.write((int)RegisterHighLowB); // sets register pointer to (0x8f)
   Wire.endTransmission(); // stop transmitting
 
-  delay(20); // Wait 20ms for transmit
+  delay(2000); // Wait 20ms for transmit
 
   Wire.requestFrom((int)LIDARLite_ADDRESS, 2); // request 2 bytes from LIDAR-Lite
 
@@ -46,5 +46,7 @@ void loop()
     reading = reading << 8; // shift high byte to be high 8 bits
     reading |= Wire.read(); // receive low byte as lower 8 bits
     Serial.println(reading); // print the reading
+    
+    
   }
 }
